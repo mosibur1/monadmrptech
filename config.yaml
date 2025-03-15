@@ -1,0 +1,177 @@
+# --------------------------- #
+# SETTINGS SECTION
+# --------------------------- #
+SETTINGS:
+    # number of concurrent threads
+    THREADS: 1
+    # number of retries for ANY action
+    ATTEMPTS: 3
+    # account range.
+    # BY DEFAULT: [0, 0] - all accounts
+    # [3, 5] - only 3 4 5 accounts
+    # [7, 7] - only 7 account
+    ACCOUNTS_RANGE: [0, 0]
+    # WORKS ONLY IF ACCOUNTS_RANGE IS [0, 0]
+    # exact accounts to use. 
+    # BY DEFAULT: [] - all accounts
+    # Example: [1, 4, 6] - bot will use only 1, 4 and 6 accounts
+    EXACT_ACCOUNTS_TO_USE: []
+    # pause between attempts
+    PAUSE_BETWEEN_ATTEMPTS: [5, 15]
+    # pause between swaps
+    PAUSE_BETWEEN_SWAPS: [10, 40]
+    # pause in seconds between accounts
+    RANDOM_PAUSE_BETWEEN_ACCOUNTS: [3, 15]
+    # pause in seconds between actions
+    RANDOM_PAUSE_BETWEEN_ACTIONS: [3, 10]
+    # random pause before start of every account
+    # to make sure that all accounts will be started at different times
+    RANDOM_INITIALIZATION_PAUSE: [5, 30]
+    # pause multiplier for browser actions
+    BROWSER_PAUSE_MULTIPLIER: 1.5
+    # telegram settings
+    TELEGRAM_BOT_TOKEN: ''
+    TELEGRAM_USERS_IDS: []
+
+# --------------------------- #
+# FLOW SECTION
+# --------------------------- #
+FLOW:
+    # number of swaps. bean ambient monad etc
+    NUMBER_OF_SWAPS: [1, 1]
+    # percent of balance to swap
+    PERCENT_OF_BALANCE_TO_SWAP: [10, 15]
+
+# --------------------------- #
+# OTHER SECTIONS
+# --------------------------- #
+DISPERSE:
+    # if balance of main account is LESS than this value
+    # bot will disperse tokens from farm accounts to main account
+    MIN_BALANCE_FOR_DISPERSE: [0.4, 0.5]
+
+DUSTED:
+    CLAIM: true  # or false to disable claiming rewards
+    SKIP_TWITTER_VERIFICATION: false
+
+APRIORI:
+    AMOUNT_TO_STAKE: [0.0001, 0.0003]
+    STAKE: true
+    UNSTAKE: true
+
+MAGMA:
+    AMOUNT_TO_STAKE: [0.0001, 0.0003]
+    STAKE: true
+    UNSTAKE: true
+
+KINTSU:
+    # MINIMUM IS 0.01 $MON
+    AMOUNT_TO_STAKE: [0.01, 0.02]
+    STAKE: true
+    UNSTAKE: true
+
+BIMA:
+    LEND: true
+    PERCENT_OF_BALANCE_TO_LEND: [20.0, 30.0]
+
+GASZIP:
+    NETWORKS_TO_REFUEL_FROM: ["Arbitrum", "Base", "Optimism"]
+    AMOUNT_TO_REFUEL: [0.0001, 0.00015]
+    MINIMUM_BALANCE_TO_REFUEL: 0.5
+    WAIT_FOR_FUNDS_TO_ARRIVE: true
+    MAX_WAIT_TIME: 999999
+    BRIDGE_ALL: false
+    BRIDGE_ALL_MAX_AMOUNT: 0.01
+
+MEMEBRIDGE:
+    NETWORKS_TO_REFUEL_FROM: ["Arbitrum", "Base", "Optimism"]
+    AMOUNT_TO_REFUEL: [0.0001, 0.00015]
+    MINIMUM_BALANCE_TO_REFUEL: 0.5
+    WAIT_FOR_FUNDS_TO_ARRIVE: true
+    MAX_WAIT_TIME: 999999
+    BRIDGE_ALL: false
+    BRIDGE_ALL_MAX_AMOUNT: 0.01
+
+TESTNET_BRIDGE:
+    NETWORKS_TO_REFUEL_FROM: ["Arbitrum", "Optimism"]
+    AMOUNT_TO_REFUEL: [0.0002, 0.0003]
+    MINIMUM_BALANCE_TO_REFUEL: 5.0
+    WAIT_FOR_FUNDS_TO_ARRIVE: true
+    MAX_WAIT_TIME: 999999
+    BRIDGE_ALL: false
+    BRIDGE_ALL_MAX_AMOUNT: 0.01
+
+NOSTRA:
+    PERCENT_OF_BALANCE_TO_DEPOSIT: [3, 15]
+    DEPOSIT: true
+    BORROW: true
+    REPAY: true
+    WITHDRAW: true
+
+SHMONAD:
+    BUY_AND_STAKE_SHMON: true
+    UNSTAKE_AND_SELL_SHMON: true
+    # percent of balance to swap on shmonad.xyz
+    PERCENT_OF_BALANCE_TO_SWAP: [2, 3]
+
+ACCOUNTABLE:
+    NFT_PER_ACCOUNT_LIMIT: 3
+
+ORBITER:
+    AMOUNT_TO_BRIDGE: [0.1, 0.2]
+    BRIDGE_ALL: true
+    WAIT_FOR_FUNDS_TO_ARRIVE: true
+    MAX_WAIT_TIME: 999999999
+
+LILCHOGSTARS:
+    MAX_AMOUNT_FOR_EACH_ACCOUNT: [1, 3]
+
+DEMASK:
+    MAX_AMOUNT_FOR_EACH_ACCOUNT: [1, 3]
+
+# monadking or monadking_unlocked
+MONADKING:
+    MAX_AMOUNT_FOR_EACH_ACCOUNT: [1, 3]
+
+FRONT_RUNNER:
+    MAX_AMOUNT_TRANSACTIONS_FOR_ONE_RUN: [1, 3]
+    PAUSE_BETWEEN_TRANSACTIONS: [10, 30]
+
+MAGICEDEN:
+    NFT_CONTRACTS: [
+        "0x9e313cbd57a35661072c1b96684454cebd09acdc"
+    ]
+
+FAUCET:
+    USE_SOLVIUM_FOR_CLOUDFLARE: true
+    # CHEAPEST CAPTCHA SOLVER - https://t.me/solvium_crypto_bot
+    SOLVIUM_API_KEY: sadfhasldfhalsdjfhalsdjf
+
+    # optional
+    USE_CAPSOLVER_FOR_CLOUDFLARE: false
+    CAPSOLVER_API_KEY: CAP-asdfasldjkfashdfadhasd
+
+    # Using Nocaptcha by default
+    NOCAPTCHA_API_KEY: abc
+    # if does not work without proxy, set proxy here
+    # format: username:password@ip:port
+    PROXY_FOR_NOCAPTCHA: ""
+    
+# --------------------------- #
+# EXCHANGES SECTION
+# --------------------------- #
+EXCHANGES:
+    name: "OKX"  # Supported: "OKX", "BITGET"
+    apiKey: ''
+    secretKey: ''
+    passphrase: ''  
+    withdrawals:
+        - currency: "ETH" # ONLY ETH
+          networks: ["Arbitrum", "Base", "Optimism"] # ["Arbitrum", "Base", "Optimism"]
+          min_amount: 0.0003
+          max_amount: 0.0004
+          max_balance: 0.005
+          wait_for_funds: true
+          max_wait_time: 99999  # in seconds
+          retries: 3
+
